@@ -36,12 +36,12 @@ class Character:
 
 player_speed = 2
 def playerAI(self, characters):
-    # while True:
-    #     try:
-    keys = pygame.key.get_pressed()
-        #     break
-        # except pygame.error:
-        #     pass
+    while True:
+        try:
+            keys = pygame.key.get_pressed()
+            break
+        except pygame.error:
+            pass
 
     # self.velocity *= 0
 
@@ -123,7 +123,7 @@ def enemyAI(self, characters):
     return vel
 
 
-for i in range(5):
+for i in range(3):
     characters.append(Character())
     enemy = characters[-1]
 
