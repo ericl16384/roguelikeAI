@@ -72,7 +72,7 @@ player.pos += (400, 400)
 
 
 
-enemySpeed = 1.5
+enemySpeed = 2
 def enemyAI(self, characters):
     vel = np.array((0, 0), float)
 
@@ -89,16 +89,22 @@ def enemyAI(self, characters):
 
         # pursuit
         if c.force != self.force:
-            vel += dx
+            if dist > 200:
+                vel += dx
+            elif dist < 150:
+                vel -= dx
 
         # collision avoidance and turning
         collisionMax = 50
         collisionMin = 30
         if dist < collisionMin:
             vel -= 1000 * dx
-        if dist < collisionMax:
-            vel += 0.1 * rotateVector(dx, np.pi/2)
-            pass
+        # if dist < collisionMax:
+        #     vel += 0.1 * rotateVector(dx, np.pi/2)
+        #     pass
+
+        # spread out
+        vel -= 0.01 * dx
     
 
 
@@ -123,7 +129,7 @@ def enemyAI(self, characters):
     return vel
 
 
-for i in range(3):
+for i in range(60):
     characters.append(Character())
     enemy = characters[-1]
 
