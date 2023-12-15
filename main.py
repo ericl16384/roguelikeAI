@@ -129,7 +129,7 @@ def enemyAI(self, characters):
     return vel
 
 
-for i in range(60):
+for i in range(5):
     characters.append(Character())
     enemy = characters[-1]
 
